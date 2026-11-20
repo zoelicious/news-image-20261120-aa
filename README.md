@@ -21,15 +21,16 @@ Friday 20 November 2026, with its source named on the page.
 
 ## How it is built
 
-- `render.py` — draws `entry.png` (1024x1024) at build time: its own PNG
-  encoder (zlib/struct), its own stroke font, its own vector globe and icons.
-  Python standard library only, no network, fully deterministic.
-- `main.py` — the entry program: copies the shipped `entry.png` to
-  `$MAKEFUN_OUTPUT_DIR/entry.png`.
+- `render.py` — draws `entry.png` (1024x1024) at build time with Pillow and
+  the system DejaVu TrueType fonts (real TTF glyphs — no hand-made font or
+  PNG encoder), plus its own vector globe and icons. Build-time only;
+  fully deterministic, no network.
+- `main.py` — the entry program (Python standard library only): copies the
+  shipped `entry.png` to `$MAKEFUN_OUTPUT_DIR/entry.png`.
 
 Run it:
 
 ```sh
-python3 render.py            # writes out/entry.png (MAKEFUN_OUTPUT_DIR)
+python3 render.py            # writes entry.png (needs Pillow + DejaVu fonts)
 MAKEFUN_OUTPUT_DIR=out python3 main.py
 ```

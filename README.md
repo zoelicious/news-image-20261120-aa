@@ -34,3 +34,5 @@ Run it:
 python3 render.py            # writes entry.png (needs Pillow + DejaVu fonts)
 MAKEFUN_OUTPUT_DIR=out python3 main.py
 ```
+
+https://make.fun/r/nmy46sr8
